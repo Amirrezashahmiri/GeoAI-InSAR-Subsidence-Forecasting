@@ -1,0 +1,1442 @@
+==============================================================================================================
+MODEL: BiLSTM
+SCENARIO: combined_cumulative
+TARGET FEATURE: Cumulative InSAR Displacement
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 2
+Scenario features: ['Cumulative InSAR Displacement', 'Volumetric Soil Water Layer 4', 'Leaf Area Index for High Vegetation', 'Total Precipitation', 'Temperature at 2 meters above the surface', 'Surface Net Solar Radiation', 'Dewpoint Temperature at 2 meters', 'Soil Temperature at Level 4', 'Total Evaporation', 'Soil Organic Carbon Content (g/kg)', 'Clay Percentage in Soil', 'Height', 'Soil pH in Water']
+Best hyperparameters: {'units': 32, 'dropout_rate': 0.1, 'learning_rate': 0.001, 'batch_size': 32, 'epochs': 80}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9971      3.8944      2.6797      
+Validation  0.9920      4.5454      3.2646      
+Test        0.9883      8.7921      5.8332      
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9966      4.2367      2.8894      
+Validation  0.9930      4.2388      2.9080      
+Test        0.9924      7.0596      4.4341      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: -0.0042
+RMSE Reduction: -1.7325
+MAE Reduction: -1.3991
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.9943         2.8923         2.2713         15080          
+Qazvin-Alborz-Tehran     0.9986         5.9383         4.3446         7018           
+Marvdasht                0.8681         5.9042         4.4479         6758           
+Isfahan                  0.9498         3.6507         2.9116         5336           
+Semnan                   0.7406         2.7995         2.1278         4046           
+Jiroft                   0.5709         6.9204         5.2265         3248           
+Lake Urmia  Tabriz       0.4820         18.1977        13.9872        2541           
+Nishapur                 0.9137         9.2251         7.9874         3120           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 2 | Average R²: 0.9628 | Average RMSE: 7.4341 | Average MAE: 4.6202
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   0.9965      3.9896      2.7057      32067       15080       
+Qazvin-Alborz-Tehran        0.9847      16.7172     5.2381      40129       7018        
+Marvdasht                   0.9099      7.0948      5.3958      40389       6758        
+Isfahan                     0.9933      3.5801      2.7336      41811       5336        
+Semnan                      0.9122      3.0582      2.2992      43101       4046        
+Jiroft                      0.9933      6.0081      4.3615      43899       3248        
+Lake Urmia  Tabriz          0.9163      13.6780     10.2062     44606       2541        
+Nishapur                    0.9965      5.3468      4.0214      44027       3120        
+==============================================================================================================
+MODEL: ElasticNet
+SCENARIO: combined_cumulative
+TARGET FEATURE: Cumulative InSAR Displacement
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 11
+Scenario features: ['Cumulative InSAR Displacement', 'Volumetric Soil Water Layer 4', 'Leaf Area Index for High Vegetation', 'Total Precipitation', 'Temperature at 2 meters above the surface', 'Surface Net Solar Radiation', 'Dewpoint Temperature at 2 meters', 'Soil Temperature at Level 4', 'Total Evaporation', 'Soil Organic Carbon Content (g/kg)', 'Clay Percentage in Soil', 'Height', 'Soil pH in Water']
+Best hyperparameters: {'alpha': 0.07522461818776512, 'l1_ratio': 1.0}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9976      3.6677      2.6429      
+Validation  0.9939      4.1087      2.8410      
+Test        0.9943      6.3860      4.0793      
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9974      3.8723      2.7456      
+Validation  0.9936      4.2148      2.8826      
+Test        0.9934      6.8813      4.2646      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: 0.0009
+RMSE Reduction: 0.4954
+MAE Reduction: 0.1853
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.9955         2.6731         2.0580         13910          
+Qazvin-Alborz-Tehran     0.9994         3.8755         2.8976         6496           
+Marvdasht                0.9078         5.0024         3.9652         6200           
+Isfahan                  0.9737         2.7217         2.1186         4922           
+Semnan                   0.8092         2.4084         1.7929         3740           
+Jiroft                   0.7623         5.2953         3.8898         2987           
+Lake Urmia  Tabriz       0.8851         8.7702         6.6296         2352           
+Nishapur                 0.9897         3.2776         2.6682         2580           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 11 | Average R²: 0.9765 | Average RMSE: 4.7216 | Average MAE: 3.5547
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   0.9980      3.1509      2.3750      29277       13910       
+Qazvin-Alborz-Tehran        0.9994      3.5397      2.3920      36691       6496        
+Marvdasht                   0.9429      5.8135      4.5601      36987       6200        
+Isfahan                     0.9952      3.1353      2.4449      38265       4922        
+Semnan                      0.9323      2.6942      2.0239      39447       3740        
+Jiroft                      0.9949      5.4678      4.0292      40200       2987        
+Lake Urmia  Tabriz          0.9502      10.7619     8.0650      40835       2352        
+Nishapur                    0.9988      3.2091      2.5474      40607       2580        
+==============================================================================================================
+MODEL: LightGBM
+SCENARIO: combined_cumulative
+TARGET FEATURE: Cumulative InSAR Displacement
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 11
+Scenario features: ['Cumulative InSAR Displacement', 'Volumetric Soil Water Layer 4', 'Leaf Area Index for High Vegetation', 'Total Precipitation', 'Temperature at 2 meters above the surface', 'Surface Net Solar Radiation', 'Dewpoint Temperature at 2 meters', 'Soil Temperature at Level 4', 'Total Evaporation', 'Soil Organic Carbon Content (g/kg)', 'Clay Percentage in Soil', 'Height', 'Soil pH in Water']
+Best hyperparameters: {'n_estimators': 200, 'learning_rate': 0.05, 'num_leaves': 15, 'min_child_samples': 10, 'subsample': 0.9, 'colsample_bytree': 0.9}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9977      3.6115      2.5173      
+Validation  0.9922      4.6622      2.9926      
+Test        0.9882      9.1802      5.9660      
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9974      3.8723      2.7456      
+Validation  0.9936      4.2148      2.8826      
+Test        0.9934      6.8813      4.2646      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: -0.0052
+RMSE Reduction: -2.2988
+MAE Reduction: -1.7014
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.9960         2.5033         1.9113         13910          
+Qazvin-Alborz-Tehran     0.9964         9.9047         3.6743         6496           
+Marvdasht                0.9380         4.1013         3.1418         6200           
+Isfahan                  0.9515         3.6936         2.2550         4922           
+Semnan                   0.8154         2.3691         1.8034         3740           
+Jiroft                   0.8193         4.6172         3.4568         2987           
+Lake Urmia  Tabriz       0.8887         8.6292         6.6604         2352           
+Nishapur                 0.9890         3.3775         2.4566         2580           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 11 | Average R²: 0.9579 | Average RMSE: 11.0773 | Average MAE: 4.9568
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   0.9940      5.4637      2.7863      29277       13910       
+Qazvin-Alborz-Tehran        0.8952      45.3246     10.0216     36691       6496        
+Marvdasht                   0.9408      5.9217      4.6218      36987       6200        
+Isfahan                     0.9943      3.4357      2.6232      38265       4922        
+Semnan                      0.9304      2.7329      2.0327      39447       3740        
+Jiroft                      0.9922      6.7677      4.3750      40200       2987        
+Lake Urmia  Tabriz          0.9198      13.6564     9.6506      40835       2352        
+Nishapur                    0.9968      5.3158      3.5433      40607       2580        
+==============================================================================================================
+MODEL: XGBoost
+SCENARIO: combined_cumulative
+TARGET FEATURE: Cumulative InSAR Displacement
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 11
+Scenario features: ['Cumulative InSAR Displacement', 'Volumetric Soil Water Layer 4', 'Leaf Area Index for High Vegetation', 'Total Precipitation', 'Temperature at 2 meters above the surface', 'Surface Net Solar Radiation', 'Dewpoint Temperature at 2 meters', 'Soil Temperature at Level 4', 'Total Evaporation', 'Soil Organic Carbon Content (g/kg)', 'Clay Percentage in Soil', 'Height', 'Soil pH in Water']
+Best hyperparameters: {'n_estimators': 700, 'learning_rate': 0.03, 'max_depth': 6, 'min_child_weight': 5, 'subsample': 0.9, 'colsample_bytree': 0.8, 'reg_alpha': 0.1, 'reg_lambda': 2.0}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9991      2.2638      1.6723      
+Validation  0.9915      4.8713      3.0904      
+Test        0.9879      9.3134      6.0493      
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9974      3.8723      2.7456      
+Validation  0.9936      4.2148      2.8826      
+Test        0.9934      6.8813      4.2646      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: -0.0055
+RMSE Reduction: -2.4320
+MAE Reduction: -1.7847
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.9957         2.6004         1.9764         13910          
+Qazvin-Alborz-Tehran     0.9964         9.9022         3.5952         6496           
+Marvdasht                0.9333         4.2556         3.2043         6200           
+Isfahan                  0.9517         3.6884         2.2402         4922           
+Semnan                   0.8310         2.2668         1.7257         3740           
+Jiroft                   0.8207         4.5989         3.4627         2987           
+Lake Urmia  Tabriz       0.8908         8.5495         6.5888         2352           
+Nishapur                 0.9922         2.8529         2.1595         2580           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 11 | Average R²: 0.9573 | Average RMSE: 11.0167 | Average MAE: 4.9765
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   0.9940      5.4357      2.8611      29277       13910       
+Qazvin-Alborz-Tehran        0.8991      44.4678     9.7768      36691       6496        
+Marvdasht                   0.9403      5.9442      4.6425      36987       6200        
+Isfahan                     0.9939      3.5530      2.7050      38265       4922        
+Semnan                      0.9252      2.8336      2.1121      39447       3740        
+Jiroft                      0.9918      6.9241      4.4628      40200       2987        
+Lake Urmia  Tabriz          0.9170      13.8931     9.8123      40835       2352        
+Nishapur                    0.9971      5.0822      3.4394      40607       2580        
+==============================================================================================================
+MODEL: BiLSTM
+SCENARIO: combined_differential
+TARGET FEATURE: InSAR Displacement Difference
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 9
+Scenario features: ['InSAR Displacement Difference', 'Volumetric Soil Water Layer 4', 'Leaf Area Index for High Vegetation', 'Total Precipitation', 'Temperature at 2 meters above the surface', 'Surface Net Solar Radiation', 'Dewpoint Temperature at 2 meters', 'Soil Temperature at Level 4', 'Total Evaporation', 'Soil Organic Carbon Content (g/kg)', 'Clay Percentage in Soil', 'Height', 'Soil pH in Water']
+Best hyperparameters: {'units': 64, 'dropout_rate': 0.1, 'learning_rate': 0.001, 'batch_size': 32, 'epochs': 80}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.2431      3.4400      2.4305      
+Validation  -0.0176     4.2916      2.9699      
+Test        -0.0506     7.2067      4.6282      
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    -1.0656     5.6826      3.6130      
+Validation  -1.1340     6.2149      4.0283      
+Test        -1.7037     11.5612     7.1950      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: 1.6531
+RMSE Reduction: 4.3545
+MAE Reduction: 2.5668
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.0734         2.5484         1.9711         14170          
+Qazvin-Alborz-Tehran     0.3260         2.7794         2.0486         6612           
+Marvdasht                0.5260         4.2790         3.1684         6324           
+Isfahan                  0.3493         2.4834         1.9170         5014           
+Semnan                   -0.5855        3.2091         2.3401         3808           
+Jiroft                   -0.0073        5.8998         4.3404         3045           
+Lake Urmia  Tabriz       0.2303         10.0711        7.3911         2394           
+Nishapur                 0.6146         2.1314         1.6346         2700           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 9 | Average R²: -0.3775 | Average RMSE: 5.4344 | Average MAE: 4.0901
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   -0.5658     3.3737      2.5779      29897       14170       
+Qazvin-Alborz-Tehran        -0.7820     4.0480      3.0049      37455       6612        
+Marvdasht                   -0.0883     6.7828      5.2168      37743       6324        
+Isfahan                     -0.6557     4.3328      3.3346      39053       5014        
+Semnan                      -0.4815     3.3176      2.3882      40259       3808        
+Jiroft                      -0.0582     5.7040      4.1715      41022       3045        
+Lake Urmia  Tabriz          0.0213      11.6733     8.7287      41673       2394        
+Nishapur                    -0.4097     4.2426      3.2984      41367       2700        
+==============================================================================================================
+==============================================================================================================
+MODEL: ElasticNet
+SCENARIO: combined_differential
+TARGET FEATURE: InSAR Displacement Difference
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 10
+Scenario features: ['InSAR Displacement Difference', 'Volumetric Soil Water Layer 4', 'Leaf Area Index for High Vegetation', 'Total Precipitation', 'Temperature at 2 meters above the surface', 'Surface Net Solar Radiation', 'Dewpoint Temperature at 2 meters', 'Soil Temperature at Level 4', 'Total Evaporation', 'Soil Organic Carbon Content (g/kg)', 'Clay Percentage in Soil', 'Height', 'Soil pH in Water']
+Best hyperparameters: {'alpha': 3.2378483139132412, 'l1_ratio': 0.1}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.0036      3.9311      2.7729      
+Validation  -0.0003     4.2132      2.8935      
+Test        0.0029      6.9498      4.3166      
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    -1.0930     5.6974      3.6227      
+Validation  -1.1616     6.1935      4.0286      
+Test        -1.6675     11.3670     7.0465      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: 1.6703
+RMSE Reduction: 4.4172
+MAE Reduction: 2.7299
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.0999         2.5043         1.9308         14040          
+Qazvin-Alborz-Tehran     0.3893         2.6267         1.9771         6554           
+Marvdasht                0.3113         5.1611         4.0799         6262           
+Isfahan                  0.0939         2.9229         2.2921         4968           
+Semnan                   0.1079         2.4031         1.8014         3774           
+Jiroft                   0.3340         4.7845         3.6051         3016           
+Lake Urmia  Tabriz       0.2867         9.6765         7.4161         2373           
+Nishapur                 0.5455         2.3264         1.8745         2640           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 10 | Average R²: -0.0442 | Average RMSE: 4.9155 | Average MAE: 3.6904
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   -0.1529     2.8908      2.1912      29587       14040       
+Qazvin-Alborz-Tehran        -0.2673     3.3717      2.3566      37073       6554        
+Marvdasht                   -0.0006     6.5073      5.0962      37365       6262        
+Isfahan                     0.0281      3.2536      2.4954      38659       4968        
+Semnan                      -0.0390     2.7046      2.0086      39853       3774        
+Jiroft                      0.0176      5.4702      3.9710      40611       3016        
+Lake Urmia  Tabriz          0.0170      11.6349     8.7016      41254       2373        
+Nishapur                    0.0432      3.4910      2.7026      40987       2640        
+==============================================================================================================
+MODEL: LightGBM
+SCENARIO: combined_differential
+TARGET FEATURE: InSAR Displacement Difference
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 11
+Scenario features: ['InSAR Displacement Difference', 'Volumetric Soil Water Layer 4', 'Leaf Area Index for High Vegetation', 'Total Precipitation', 'Temperature at 2 meters above the surface', 'Surface Net Solar Radiation', 'Dewpoint Temperature at 2 meters', 'Soil Temperature at Level 4', 'Total Evaporation', 'Soil Organic Carbon Content (g/kg)', 'Clay Percentage in Soil', 'Height', 'Soil pH in Water']
+Best hyperparameters: {'n_estimators': 200, 'learning_rate': 0.05, 'num_leaves': 15, 'min_child_samples': 10, 'subsample': 0.9, 'colsample_bytree': 0.9}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.5466      2.5984      1.9420      
+Validation  -0.0188     4.2518      2.8859      
+Test        0.0237      6.7973      4.3430      
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    -1.1436     5.6496      3.5932      
+Validation  -1.1441     6.1680      4.0104      
+Test        -1.7743     11.4583     7.0888      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: 1.7980
+RMSE Reduction: 4.6610
+MAE Reduction: 2.7459
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.2297         2.3220         1.7842         13910          
+Qazvin-Alborz-Tehran     0.4886         2.4028         1.7795         6496           
+Marvdasht                0.7215         3.1757         2.4408         6200           
+Isfahan                  0.5385         2.0480         1.5606         4922           
+Semnan                   0.1983         2.2847         1.7165         3740           
+Jiroft                   0.4574         4.3274         3.2836         2987           
+Lake Urmia  Tabriz       0.7981         5.1374         3.5524         2352           
+Nishapur                 0.7615         1.6657         1.2692         2580           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 11 | Average R²: -0.0065 | Average RMSE: 4.7834 | Average MAE: 3.5989
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   -0.1233     2.8494      2.1684      29277       13910       
+Qazvin-Alborz-Tehran        0.0282      2.9462      2.1203      36691       6496        
+Marvdasht                   0.0345      6.2168      4.8593      36987       6200        
+Isfahan                     -0.0459     3.2722      2.5274      38265       4922        
+Semnan                      -0.0717     2.7396      2.0536      39447       3740        
+Jiroft                      0.0107      5.4937      3.9733      40200       2987        
+Lake Urmia  Tabriz          0.0657      11.2777     8.4288      40835       2352        
+Nishapur                    0.0499      3.4712      2.6601      40607       2580        
+==============================================================================================================
+MODEL: XGBoost
+SCENARIO: combined_differential
+TARGET FEATURE: InSAR Displacement Difference
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 11
+Scenario features: ['InSAR Displacement Difference', 'Volumetric Soil Water Layer 4', 'Leaf Area Index for High Vegetation', 'Total Precipitation', 'Temperature at 2 meters above the surface', 'Surface Net Solar Radiation', 'Dewpoint Temperature at 2 meters', 'Soil Temperature at Level 4', 'Total Evaporation', 'Soil Organic Carbon Content (g/kg)', 'Clay Percentage in Soil', 'Height', 'Soil pH in Water']
+Best hyperparameters: {'n_estimators': 300, 'learning_rate': 0.05, 'max_depth': 3, 'min_child_weight': 1, 'subsample': 0.8, 'colsample_bytree': 0.8, 'reg_alpha': 0.0, 'reg_lambda': 1.0}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.4535      2.8526      2.1153      
+Validation  0.0084      4.1948      2.8605      
+Test        0.0380      6.7473      4.3230      
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    -1.1436     5.6496      3.5932      
+Validation  -1.1441     6.1680      4.0104      
+Test        -1.7743     11.4583     7.0888      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: 1.8123
+RMSE Reduction: 4.7109
+MAE Reduction: 2.7658
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.2106         2.3506         1.8004         13910          
+Qazvin-Alborz-Tehran     0.4630         2.4623         1.8166         6496           
+Marvdasht                0.7251         3.1548         2.4393         6200           
+Isfahan                  0.5229         2.0823         1.5930         4922           
+Semnan                   0.2327         2.2351         1.6644         3740           
+Jiroft                   0.4801         4.2358         3.1953         2987           
+Lake Urmia  Tabriz       0.8136         4.9374         3.4266         2352           
+Nishapur                 0.7206         1.8027         1.3974         2580           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 11 | Average R²: -0.0167 | Average RMSE: 4.8073 | Average MAE: 3.6275
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   -0.1545     2.8888      2.1908      29277       13910       
+Qazvin-Alborz-Tehran        -0.0110     3.0051      2.1523      36691       6496        
+Marvdasht                   0.0402      6.1983      4.8854      36987       6200        
+Isfahan                     -0.0507     3.2798      2.5408      38265       4922        
+Semnan                      -0.0658     2.7320      2.0429      39447       3740        
+Jiroft                      0.0170      5.4764      3.9660      40200       2987        
+Lake Urmia  Tabriz          0.0455      11.3991     8.5735      40835       2352        
+Nishapur                    0.0455      3.4793      2.6684      40607       2580        
+==============================================================================================================
+MODEL: BiLSTM
+SCENARIO: environmental_only_cumulative
+TARGET FEATURE: Cumulative InSAR Displacement
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 6
+Scenario features: ['Volumetric Soil Water Layer 4', 'Leaf Area Index for High Vegetation', 'Total Precipitation', 'Temperature at 2 meters above the surface', 'Surface Net Solar Radiation', 'Dewpoint Temperature at 2 meters', 'Soil Temperature at Level 4', 'Total Evaporation', 'Soil Organic Carbon Content (g/kg)', 'Clay Percentage in Soil', 'Height', 'Soil pH in Water']
+Best hyperparameters: {'units': 64, 'dropout_rate': 0.2, 'learning_rate': 0.0005, 'batch_size': 32, 'epochs': 100}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.8051      32.5131     14.6032     
+Validation  0.1127      48.5746     20.0750     
+Test        -0.8756     113.2600    69.8372     
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9967      4.2369      2.8829      
+Validation  0.9931      4.2830      2.9398      
+Test        0.9927      7.0721      4.4510      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: -1.8683
+RMSE Reduction: -106.1878
+MAE Reduction: -65.3862
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                -5.9195        102.0456       44.6356        14560          
+Qazvin-Alborz-Tehran     -0.1903        175.4106       72.9409        6786           
+Marvdasht                -1.1752        24.2827        17.5844        6510           
+Isfahan                  -13.9158       63.8375        37.2797        5152           
+Semnan                   -2.2231        9.9587         7.5859         3910           
+Jiroft                   -0.9797        15.0853        12.4184        3132           
+Lake Urmia  Tabriz       -0.7573        33.9145        25.9932        2457           
+Nishapur                 -0.9646        44.5540        39.5651        2880           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 6 | Average R²: -1.3893 | Average RMSE: 83.7106 | Average MAE: 48.8979
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   -0.0920     71.9462     32.6192     30827       14560       
+Qazvin-Alborz-Tehran        0.0812      131.5376    55.9847     38601       6786        
+Marvdasht                   -5.0830     59.1252     27.9533     38877       6510        
+Isfahan                     0.0788      42.5871     25.1195     40235       5152        
+Semnan                      -0.3088     11.9263     9.1053      41477       3910        
+Jiroft                      -2.6500     142.8152    96.8188     42255       3132        
+Lake Urmia  Tabriz          -2.3984     87.9765     59.8914     42930       2457        
+Nishapur                    -0.7419     121.7709    83.6914     42507       2880        
+==============================================================================================================
+MODEL: ElasticNet
+SCENARIO: environmental_only_cumulative
+TARGET FEATURE: Cumulative InSAR Displacement
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 3
+Scenario features: ['Volumetric Soil Water Layer 4', 'Leaf Area Index for High Vegetation', 'Total Precipitation', 'Temperature at 2 meters above the surface', 'Surface Net Solar Radiation', 'Dewpoint Temperature at 2 meters', 'Soil Temperature at Level 4', 'Total Evaporation', 'Soil Organic Carbon Content (g/kg)', 'Clay Percentage in Soil', 'Height', 'Soil pH in Water']
+Best hyperparameters: {'alpha': 0.4299551542627454, 'l1_ratio': 0.1}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.0948      69.1289     33.0518     
+Validation  -0.3448     59.0270     42.9490     
+Test        -0.0266     82.6596     62.1104     
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9966      4.2356      2.8903      
+Validation  0.9930      4.2501      2.9141      
+Test        0.9924      7.0938      4.4459      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: -1.0191
+RMSE Reduction: -75.5659
+MAE Reduction: -57.6645
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.0103         38.1188        20.6235        14950          
+Qazvin-Alborz-Tehran     0.1239         148.7307       58.5023        6960           
+Marvdasht                -0.1943        17.8248        14.3157        6696           
+Isfahan                  -0.2970        18.6088        15.8118        5290           
+Semnan                   -2.2279        9.9041         8.7284         4012           
+Jiroft                   -14.0511       41.1080        34.1721        3219           
+Lake Urmia  Tabriz       -3.7141        55.0840        45.9881        2520           
+Nishapur                 -1.7451        52.1513        44.5892        3060           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 3 | Average R²: -0.7600 | Average RMSE: 67.2250 | Average MAE: 38.1557
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   -0.0310     69.0674     31.2098     31757       14950       
+Qazvin-Alborz-Tehran        -0.0249     137.2907    52.0299     39747       6960        
+Marvdasht                   -0.5345     29.3857     24.3084     40011       6696        
+Isfahan                     0.0127      43.5439     24.8544     41417       5290        
+Semnan                      -4.2827     23.7947     20.4710     42695       4012        
+Jiroft                      0.0037      73.6549     38.6784     43488       3219        
+Lake Urmia  Tabriz          -1.2451     71.0589     57.1652     44187       2520        
+Nishapur                    0.0214      90.0035     56.5284     43647       3060        
+==============================================================================================================
+MODEL: LightGBM
+SCENARIO: environmental_only_cumulative
+TARGET FEATURE: Cumulative InSAR Displacement
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 11
+Scenario features: ['Volumetric Soil Water Layer 4', 'Leaf Area Index for High Vegetation', 'Total Precipitation', 'Temperature at 2 meters above the surface', 'Surface Net Solar Radiation', 'Dewpoint Temperature at 2 meters', 'Soil Temperature at Level 4', 'Total Evaporation', 'Soil Organic Carbon Content (g/kg)', 'Clay Percentage in Soil', 'Height', 'Soil pH in Water']
+Best hyperparameters: {'n_estimators': 200, 'learning_rate': 0.05, 'num_leaves': 15, 'min_child_samples': 10, 'subsample': 0.9, 'colsample_bytree': 0.9}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9304      19.8765     11.0774     
+Validation  -0.1736     57.0937     29.6084     
+Test        -1.5630     135.4809    93.7454     
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9974      3.8723      2.7456      
+Validation  0.9936      4.2148      2.8826      
+Test        0.9934      6.8813      4.2646      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: -2.5564
+RMSE Reduction: -128.5996
+MAE Reduction: -89.4808
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                -0.7231        52.0448        26.6630        13910          
+Qazvin-Alborz-Tehran     -0.6968        213.7679       122.3467       6496           
+Marvdasht                -3.4682        34.8275        23.4570        6200           
+Isfahan                  -1.2633        25.2383        18.2365        4922           
+Semnan                   -3.0946        11.1566        8.0782         3740           
+Jiroft                   -1.4048        16.8435        11.5817        2987           
+Lake Urmia  Tabriz       -5.2781        64.8204        58.1361        2352           
+Nishapur                 -0.1744        34.9748        30.4344        2580           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 11 | Average R²: -0.3681 | Average RMSE: 72.5093 | Average MAE: 47.0971
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   -0.1433     75.1656     36.0580     29277       13910       
+Qazvin-Alborz-Tehran        -0.3281     161.3487    94.2128     36691       6496        
+Marvdasht                   -0.7367     32.0730     22.4526     36987       6200        
+Isfahan                     -0.1029     47.6090     28.1129     38265       4922        
+Semnan                      -0.6074     13.1315     10.7092     39447       3740        
+Jiroft                      -0.1908     83.3639     60.7611     40200       2987        
+Lake Urmia  Tabriz          -0.5319     59.6684     48.2752     40835       2352        
+Nishapur                    -0.3040     107.7141    76.1948     40607       2580        
+==============================================================================================================
+MODEL: XGBoost
+SCENARIO: environmental_only_cumulative
+TARGET FEATURE: Cumulative InSAR Displacement
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 11
+Scenario features: ['Volumetric Soil Water Layer 4', 'Leaf Area Index for High Vegetation', 'Total Precipitation', 'Temperature at 2 meters above the surface', 'Surface Net Solar Radiation', 'Dewpoint Temperature at 2 meters', 'Soil Temperature at Level 4', 'Total Evaporation', 'Soil Organic Carbon Content (g/kg)', 'Clay Percentage in Soil', 'Height', 'Soil pH in Water']
+Best hyperparameters: {'n_estimators': 500, 'learning_rate': 0.03, 'max_depth': 4, 'min_child_weight': 3, 'subsample': 0.8, 'colsample_bytree': 0.8, 'reg_alpha': 0.0, 'reg_lambda': 1.0}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9149      21.9745     11.1828     
+Validation  -0.1157     55.6666     32.7636     
+Test        -0.4664     102.4790    71.3378     
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9974      3.8723      2.7456      
+Validation  0.9936      4.2148      2.8826      
+Test        0.9934      6.8813      4.2646      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: -1.4598
+RMSE Reduction: -95.5976
+MAE Reduction: -67.0732
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.1668         36.1902        23.3392        13910          
+Qazvin-Alborz-Tehran     -0.9159        227.1498       126.8286       6496           
+Marvdasht                -6.6557        45.5876        28.6367        6200           
+Isfahan                  -0.2882        19.0409        15.3786        4922           
+Semnan                   -2.0727        9.6647         7.3254         3740           
+Jiroft                   -2.2293        19.5189        14.5704        2987           
+Lake Urmia  Tabriz       -3.4755        54.7291        47.6607        2352           
+Nishapur                 -0.2098        35.4986        31.8275        2580           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 11 | Average R²: -1.4584 | Average RMSE: 72.2120 | Average MAE: 47.1955
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   -0.2162     77.5238     36.7756     29277       13910       
+Qazvin-Alborz-Tehran        -0.0574     143.9658    92.4330     36691       6496        
+Marvdasht                   -1.0538     34.8780     25.0088     36987       6200        
+Isfahan                     -0.1133     47.8335     27.3283     38265       4922        
+Semnan                      -9.2919     33.2278     19.4153     39447       3740        
+Jiroft                      0.1435      70.7037     48.0828     40200       2987        
+Lake Urmia  Tabriz          -0.8721     65.9633     55.5165     40835       2352        
+Nishapur                    -0.2063     103.6005    73.0037     40607       2580        
+==============================================================================================================
+MODEL: BiLSTM
+SCENARIO: environmental_only_differential
+TARGET FEATURE: InSAR Displacement Difference
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 2
+Scenario features: ['Volumetric Soil Water Layer 4', 'Leaf Area Index for High Vegetation', 'Total Precipitation', 'Temperature at 2 meters above the surface', 'Surface Net Solar Radiation', 'Dewpoint Temperature at 2 meters', 'Soil Temperature at Level 4', 'Total Evaporation', 'Soil Organic Carbon Content (g/kg)', 'Clay Percentage in Soil', 'Height', 'Soil pH in Water']
+Best hyperparameters: {'units': 64, 'dropout_rate': 0.2, 'learning_rate': 0.0005, 'batch_size': 32, 'epochs': 100}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.0446      4.1332      2.8160      
+Validation  -0.0134     4.2630      2.9500      
+Test        -0.0282     7.1576      4.5657      
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    -1.1450     6.1930      3.7742      
+Validation  -1.1062     6.1458      3.9911      
+Test        -1.4958     11.1517     6.9686      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: 1.4676
+RMSE Reduction: 3.9940
+MAE Reduction: 2.4029
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.0673         2.5657         1.9861         15080          
+Qazvin-Alborz-Tehran     0.1489         3.1483         2.4106         7018           
+Marvdasht                0.3365         5.6491         4.1480         6758           
+Isfahan                  0.3521         2.5705         1.9745         5336           
+Semnan                   -0.1284        2.7151         2.0420         4046           
+Jiroft                   -0.0961        6.0373         4.4774         3248           
+Lake Urmia  Tabriz       -0.1781        12.3373        9.1870         2541           
+Nishapur                 0.4675         2.5413         1.8885         3120           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 2 | Average R²: -0.5929 | Average RMSE: 6.1150 | Average MAE: 4.6325
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   -0.3521     3.1758      2.4441      32067       15080       
+Qazvin-Alborz-Tehran        -1.1389     4.4833      3.3410      40129       7018        
+Marvdasht                   -0.5446     8.9504      6.7442      40389       6758        
+Isfahan                     -1.3119     5.2683      4.0516      41811       5336        
+Semnan                      -0.1281     2.9692      2.1844      43101       4046        
+Jiroft                      -0.2066     6.0068      4.4472      43899       3248        
+Lake Urmia  Tabriz          -0.2498     13.2731     10.1457     44606       2541        
+Nishapur                    -0.8116     4.7928      3.7014      44027       3120        
+==============================================================================================================
+MODEL: ElasticNet
+SCENARIO: environmental_only_differential
+TARGET FEATURE: InSAR Displacement Difference
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 3
+Scenario features: ['Volumetric Soil Water Layer 4', 'Leaf Area Index for High Vegetation', 'Total Precipitation', 'Temperature at 2 meters above the surface', 'Surface Net Solar Radiation', 'Dewpoint Temperature at 2 meters', 'Soil Temperature at Level 4', 'Total Evaporation', 'Soil Organic Carbon Content (g/kg)', 'Clay Percentage in Soil', 'Height', 'Soil pH in Water']
+Best hyperparameters: {'alpha': 0.2356390583614487, 'l1_ratio': 0.1}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.0161      4.1931      2.8664      
+Validation  -0.0072     4.2618      2.9522      
+Test        -0.0085     7.1234      4.4778      
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    -1.1538     6.2039      3.7800      
+Validation  -1.0992     6.1525      3.9847      
+Test        -1.5098     11.2377     7.0282      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: 1.5014
+RMSE Reduction: 4.1143
+MAE Reduction: 2.5504
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                -0.0006        2.6646         2.0663         14950          
+Qazvin-Alborz-Tehran     0.0471         3.3303         2.4221         6960           
+Marvdasht                0.0195         6.8501         5.2004         6696           
+Isfahan                  0.0259         3.1627         2.4520         5290           
+Semnan                   -0.0198        2.5693         1.9257         4012           
+Jiroft                   0.0123         5.7457         4.2068         3219           
+Lake Urmia  Tabriz       0.0353         11.1788        8.7037         2520           
+Nishapur                 0.2461         3.0309         2.4459         3060           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 3 | Average R²: -0.0045 | Average RMSE: 5.0366 | Average MAE: 3.7495
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   -0.0030     2.7397      2.0752      31757       14950       
+Qazvin-Alborz-Tehran        -0.0196     3.1002      2.2234      39747       6960        
+Marvdasht                   -0.0009     7.1913      5.4226      40011       6696        
+Isfahan                     -0.0008     3.4761      2.6120      41417       5290        
+Semnan                      -0.0076     2.8046      2.0274      42695       4012        
+Jiroft                      -0.0008     5.4915      3.9886      43488       3219        
+Lake Urmia  Tabriz          -0.0032     11.9159     8.9009      44187       2520        
+Nishapur                    -0.0001     3.5735      2.7456      43647       3060        
+==============================================================================================================
+MODEL: LightGBM
+SCENARIO: environmental_only_differential
+TARGET FEATURE: InSAR Displacement Difference
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 3
+Scenario features: ['Volumetric Soil Water Layer 4', 'Leaf Area Index for High Vegetation', 'Total Precipitation', 'Temperature at 2 meters above the surface', 'Surface Net Solar Radiation', 'Dewpoint Temperature at 2 meters', 'Soil Temperature at Level 4', 'Total Evaporation', 'Soil Organic Carbon Content (g/kg)', 'Clay Percentage in Soil', 'Height', 'Soil pH in Water']
+Best hyperparameters: {'n_estimators': 200, 'learning_rate': 0.05, 'num_leaves': 15, 'min_child_samples': 10, 'subsample': 0.9, 'colsample_bytree': 0.9}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.3773      3.3357      2.3750      
+Validation  -0.0121     4.2720      2.9388      
+Test        -0.0240     7.1781      4.5608      
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    -1.1538     6.2039      3.7800      
+Validation  -1.0992     6.1525      3.9847      
+Test        -1.5098     11.2377     7.0282      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: 1.4858
+RMSE Reduction: 4.0596
+MAE Reduction: 2.4674
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.0579         2.5855         1.9993         14950          
+Qazvin-Alborz-Tehran     -0.3275        3.9308         2.8792         6960           
+Marvdasht                0.4837         4.9710         3.5342         6696           
+Isfahan                  0.4272         2.4253         1.8970         5290           
+Semnan                   0.0909         2.4259         1.7772         4012           
+Jiroft                   0.2638         4.9605         3.6399         3219           
+Lake Urmia  Tabriz       0.3856         8.9208         6.4911         2520           
+Nishapur                 0.6811         1.9713         1.5191         3060           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 3 | Average R²: -0.0817 | Average RMSE: 5.1556 | Average MAE: 3.8465
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   -0.1143     2.8877      2.2151      31757       14950       
+Qazvin-Alborz-Tehran        -0.1204     3.2500      2.3589      39747       6960        
+Marvdasht                   -0.0183     7.2536      5.4484      40011       6696        
+Isfahan                     -0.0793     3.6099      2.6985      41417       5290        
+Semnan                      -0.2264     3.0942      2.2535      42695       4012        
+Jiroft                      -0.0069     5.5083      4.0011      43488       3219        
+Lake Urmia  Tabriz          -0.0039     11.9204     8.9210      44187       2520        
+Nishapur                    -0.0843     3.7209      2.8758      43647       3060        
+==============================================================================================================
+MODEL: XGBoost
+SCENARIO: environmental_only_differential
+TARGET FEATURE: InSAR Displacement Difference
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 2
+Scenario features: ['Volumetric Soil Water Layer 4', 'Leaf Area Index for High Vegetation', 'Total Precipitation', 'Temperature at 2 meters above the surface', 'Surface Net Solar Radiation', 'Dewpoint Temperature at 2 meters', 'Soil Temperature at Level 4', 'Total Evaporation', 'Soil Organic Carbon Content (g/kg)', 'Clay Percentage in Soil', 'Height', 'Soil pH in Water']
+Best hyperparameters: {'n_estimators': 300, 'learning_rate': 0.05, 'max_depth': 3, 'min_child_weight': 1, 'subsample': 0.8, 'colsample_bytree': 0.8, 'reg_alpha': 0.0, 'reg_lambda': 1.0}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.2104      3.7573      2.5636      
+Validation  -0.0219     4.2810      2.9525      
+Test        0.0074      7.0326      4.4720      
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    -1.1450     6.1930      3.7742      
+Validation  -1.1062     6.1458      3.9911      
+Test        -1.4958     11.1517     6.9686      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: 1.5033
+RMSE Reduction: 4.1191
+MAE Reduction: 2.4966
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.0644         2.5696         1.9843         15080          
+Qazvin-Alborz-Tehran     -0.3389        3.9488         2.9483         7018           
+Marvdasht                0.3566         5.5627         3.9728         6758           
+Isfahan                  0.3801         2.5143         1.9407         5336           
+Semnan                   0.0585         2.4800         1.8303         4046           
+Jiroft                   0.2045         5.1432         3.7680         3248           
+Lake Urmia  Tabriz       0.2734         9.6885         7.2712         2541           
+Nishapur                 0.6750         1.9853         1.5269         3120           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 2 | Average R²: -0.0561 | Average RMSE: 5.1149 | Average MAE: 3.8276
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   -0.1228     2.8940      2.2090      32067       15080       
+Qazvin-Alborz-Tehran        -0.0680     3.1681      2.3064      40129       7018        
+Marvdasht                   -0.0297     7.3080      5.4805      40389       6758        
+Isfahan                     -0.0307     3.5177      2.6463      41811       5336        
+Semnan                      -0.0859     2.9131      2.1325      43101       4046        
+Jiroft                      -0.0047     5.4812      3.9939      43899       3248        
+Lake Urmia  Tabriz          -0.0041     11.8974     8.9826      44606       2541        
+Nishapur                    -0.1028     3.7395      2.8698      44027       3120        
+==============================================================================================================
+MODEL: BiLSTM
+SCENARIO: subsidence_history_only_cumulative
+TARGET FEATURE: Cumulative InSAR Displacement
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 11
+Scenario features: ['Cumulative InSAR Displacement']
+Best hyperparameters: {'units': 64, 'dropout_rate': 0.1, 'learning_rate': 0.001, 'batch_size': 32, 'epochs': 80}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9977      3.6121      2.6015      
+Validation  0.9943      3.9739      2.7352      
+Test        0.9936      6.7627      4.3772      
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9974      3.8723      2.7456      
+Validation  0.9936      4.2148      2.8826      
+Test        0.9934      6.8813      4.2646      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: 0.0002
+RMSE Reduction: 0.1187
+MAE Reduction: -0.1126
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.9960         2.4955         1.9205         13910          
+Qazvin-Alborz-Tehran     0.9992         4.6408         3.0872         6496           
+Marvdasht                0.8844         5.6008         4.4240         6200           
+Isfahan                  0.9699         2.9108         2.2992         4922           
+Semnan                   0.7982         2.4768         1.8642         3740           
+Jiroft                   0.6486         6.4391         4.8161         2987           
+Lake Urmia  Tabriz       0.8401         10.3441        7.6939         2352           
+Nishapur                 0.9809         4.4573         3.5790         2580           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 11 | Average R²: 0.9755 | Average RMSE: 5.9254 | Average MAE: 3.6833
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   0.9982      3.0165      2.3014      29277       13910       
+Qazvin-Alborz-Tehran        0.9917      12.7909     3.2536      36691       6496        
+Marvdasht                   0.9422      5.8505      4.5665      36987       6200        
+Isfahan                     0.9954      3.0669      2.4013      38265       4922        
+Semnan                      0.9369      2.6021      1.9320      39447       3740        
+Jiroft                      0.9951      5.3313      3.8948      40200       2987        
+Lake Urmia  Tabriz          0.9457      11.2318     8.4035      40835       2352        
+Nishapur                    0.9986      3.5136      2.7134      40607       2580        
+==============================================================================================================
+MODEL: ElasticNet
+SCENARIO: subsidence_history_only_cumulative
+TARGET FEATURE: Cumulative InSAR Displacement
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 11
+Scenario features: ['Cumulative InSAR Displacement']
+Best hyperparameters: {'alpha': 0.07522461818776538, 'l1_ratio': 1.0}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9976      3.6990      2.6554      
+Validation  0.9940      4.0914      2.8250      
+Test        0.9943      6.3627      4.0317      
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9974      3.8723      2.7456      
+Validation  0.9936      4.2148      2.8826      
+Test        0.9934      6.8813      4.2646      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: 0.0010
+RMSE Reduction: 0.5186
+MAE Reduction: 0.2329
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.9954         2.6810         2.0685         13910          
+Qazvin-Alborz-Tehran     0.9995         3.8087         2.8406         6496           
+Marvdasht                0.8953         5.3315         4.1854         6200           
+Isfahan                  0.9710         2.8546         2.2221         4922           
+Semnan                   0.8081         2.4150         1.8016         3740           
+Jiroft                   0.7246         5.7002         4.1925         2987           
+Lake Urmia  Tabriz       0.8653         9.4948         7.0289         2352           
+Nishapur                 0.9875         3.6129         3.0473         2580           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 11 | Average R²: 0.9766 | Average RMSE: 4.6967 | Average MAE: 3.5334
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   0.9980      3.1356      2.3645      29277       13910       
+Qazvin-Alborz-Tehran        0.9994      3.4863      2.3563      36691       6496        
+Marvdasht                   0.9430      5.8118      4.5521      36987       6200        
+Isfahan                     0.9952      3.1352      2.4440      38265       4922        
+Semnan                      0.9332      2.6778      2.0106      39447       3740        
+Jiroft                      0.9949      5.4317      3.9942      40200       2987        
+Lake Urmia  Tabriz          0.9503      10.7495     8.0702      40835       2352        
+Nishapur                    0.9989      3.1458      2.4751      40607       2580        
+==============================================================================================================
+MODEL: LightGBM
+SCENARIO: subsidence_history_only_cumulative
+TARGET FEATURE: Cumulative InSAR Displacement
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 11
+Scenario features: ['Cumulative InSAR Displacement']
+Best hyperparameters: {'n_estimators': 200, 'learning_rate': 0.05, 'num_leaves': 15, 'min_child_samples': 10, 'subsample': 0.9, 'colsample_bytree': 0.9}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9928      6.4102      2.9610      
+Validation  0.9921      4.6719      2.9289      
+Test        0.9892      8.7976      5.6994      
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9974      3.8723      2.7456      
+Validation  0.9936      4.2148      2.8826      
+Test        0.9934      6.8813      4.2646      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: -0.0042
+RMSE Reduction: -1.9163
+MAE Reduction: -1.4348
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.9958         2.5675         1.9621         13910          
+Qazvin-Alborz-Tehran     0.9979         7.6041         3.0631         6496           
+Marvdasht                0.8986         5.2471         4.1186         6200           
+Isfahan                  0.9488         3.7961         2.6569         4922           
+Semnan                   0.7941         2.5016         1.8851         3740           
+Jiroft                   0.7156         5.7928         4.3422         2987           
+Lake Urmia  Tabriz       0.8557         9.8278         7.4083         2352           
+Nishapur                 0.9879         3.5469         2.7012         2580           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 11 | Average R²: 0.9634 | Average RMSE: 10.0133 | Average MAE: 4.6445
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   0.9958      4.5367      2.5279      29277       13910       
+Qazvin-Alborz-Tehran        0.9222      39.0562     8.4038      36691       6496        
+Marvdasht                   0.9394      5.9925      4.6539      36987       6200        
+Isfahan                     0.9943      3.4176      2.5480      38265       4922        
+Semnan                      0.9405      2.5274      1.8783      39447       3740        
+Jiroft                      0.9927      6.5298      4.3041      40200       2987        
+Lake Urmia  Tabriz          0.9246      13.2372     9.5013      40835       2352        
+Nishapur                    0.9974      4.8088      3.3385      40607       2580        
+==============================================================================================================
+MODEL: XGBoost
+SCENARIO: subsidence_history_only_cumulative
+TARGET FEATURE: Cumulative InSAR Displacement
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 11
+Scenario features: ['Cumulative InSAR Displacement']
+Best hyperparameters: {'n_estimators': 500, 'learning_rate': 0.03, 'max_depth': 4, 'min_child_weight': 3, 'subsample': 0.8, 'colsample_bytree': 0.8, 'reg_alpha': 0.0, 'reg_lambda': 1.0}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9927      6.4436      3.0161      
+Validation  0.9920      4.7184      2.9612      
+Test        0.9895      8.6909      5.6467      
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.9974      3.8723      2.7456      
+Validation  0.9936      4.2148      2.8826      
+Test        0.9934      6.8813      4.2646      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: -0.0039
+RMSE Reduction: -1.8096
+MAE Reduction: -1.3821
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.9952         2.7407         2.0970         13910          
+Qazvin-Alborz-Tehran     0.9979         7.5184         2.9855         6496           
+Marvdasht                0.8992         5.2312         4.1180         6200           
+Isfahan                  0.9491         3.7863         2.6518         4922           
+Semnan                   0.7974         2.4819         1.8677         3740           
+Jiroft                   0.7160         5.7884         4.3727         2987           
+Lake Urmia  Tabriz       0.8546         9.8637         7.4664         2352           
+Nishapur                 0.9891         3.3662         2.5775         2580           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 11 | Average R²: 0.9637 | Average RMSE: 9.9471 | Average MAE: 4.6237
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   0.9958      4.5506      2.6241      29277       13910       
+Qazvin-Alborz-Tehran        0.9231      38.8285     8.3801      36691       6496        
+Marvdasht                   0.9416      5.8828      4.6053      36987       6200        
+Isfahan                     0.9944      3.3835      2.5385      38265       4922        
+Semnan                      0.9390      2.5586      1.9055      39447       3740        
+Jiroft                      0.9931      6.3567      4.2365      40200       2987        
+Lake Urmia  Tabriz          0.9253      13.1757     9.4272      40835       2352        
+Nishapur                    0.9974      4.8402      3.2725      40607       2580   
+==============================================================================================================
+MODEL: BiLSTM
+SCENARIO: subsidence_history_only_differential
+TARGET FEATURE: InSAR Displacement Difference
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 2
+Scenario features: ['InSAR Displacement Difference']
+Best hyperparameters: {'units': 64, 'dropout_rate': 0.1, 'learning_rate': 0.001, 'batch_size': 32, 'epochs': 80}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.1407      3.9197      2.6984      
+Validation  -0.0190     4.2748      2.9189      
+Test        0.0075      7.0324      4.3521      
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    -1.1450     6.1930      3.7742      
+Validation  -1.1062     6.1458      3.9911      
+Test        -1.4958     11.1517     6.9686      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: 1.5033
+RMSE Reduction: 4.1192
+MAE Reduction: 2.6165
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.0871         2.5383         1.9509         15080          
+Qazvin-Alborz-Tehran     0.3462         2.7595         2.0507         7018           
+Marvdasht                0.1809         6.2768         4.6802         6758           
+Isfahan                  0.0403         3.1284         2.4096         5336           
+Semnan                   -0.0553        2.6256         1.9700         4046           
+Jiroft                   0.0909         5.4984         4.0484         3248           
+Lake Urmia  Tabriz       0.2401         9.9085         7.4412         2541           
+Nishapur                 0.1312         3.2459         2.6168         3120           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 2 | Average R²: 0.0151 | Average RMSE: 4.9342 | Average MAE: 3.6531
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   -0.0001     2.7313      2.0568      32067       15080       
+Qazvin-Alborz-Tehran        0.0076      3.0539      2.1563      40129       7018        
+Marvdasht                   0.0854      6.8872      5.1637      40389       6758        
+Isfahan                     -0.0074     3.4777      2.6191      41811       5336        
+Semnan                      -0.0777     2.9021      2.0569      43101       4046        
+Jiroft                      -0.0281     5.5447      4.0042      43899       3248        
+Lake Urmia  Tabriz          0.0710      11.4435     8.5084      44606       2541        
+Nishapur                    0.0703      3.4335      2.6598      44027       3120        
+==============================================================================================================
+MODEL: ElasticNet
+SCENARIO: subsidence_history_only_differential
+TARGET FEATURE: InSAR Displacement Difference
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 10
+Scenario features: ['InSAR Displacement Difference']
+Best hyperparameters: {'alpha': 4.280244918653277, 'l1_ratio': 0.1}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.0000      3.9382      2.7771      
+Validation  -0.0013     4.2154      2.8966      
+Test        -0.0005     6.9615      4.3195      
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    -1.0930     5.6974      3.6227      
+Validation  -1.1616     6.1935      4.0286      
+Test        -1.6675     11.3670     7.0465      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: 1.6670
+RMSE Reduction: 4.4054
+MAE Reduction: 2.7271
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.0950         2.5110         1.9286         14040          
+Qazvin-Alborz-Tehran     0.3575         2.6943         2.0024         6554           
+Marvdasht                0.2221         5.4852         4.3178         6262           
+Isfahan                  0.0724         2.9575         2.3002         4968           
+Semnan                   0.1092         2.4014         1.7930         3774           
+Jiroft                   0.0219         5.7979         4.2250         3016           
+Lake Urmia  Tabriz       0.3010         9.5792         7.1411         2373           
+Nishapur                 0.0685         3.3304         2.6836         2640           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 10 | Average R²: -0.0408 | Average RMSE: 4.9106 | Average MAE: 3.6824
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   -0.1448     2.8806      2.1894      29587       14040       
+Qazvin-Alborz-Tehran        -0.2668     3.3711      2.3517      37073       6554        
+Marvdasht                   -0.0006     6.5073      5.0962      37365       6262        
+Isfahan                     0.0262      3.2566      2.4950      38659       4968        
+Semnan                      -0.0258     2.6873      1.9925      39853       3774        
+Jiroft                      0.0197      5.4643      3.9701      40611       3016        
+Lake Urmia  Tabriz          0.0167      11.6370     8.7018      41254       2373        
+Nishapur                    0.0491      3.4803      2.6624      40987       2640        
+==============================================================================================================
+MODEL: LightGBM
+SCENARIO: subsidence_history_only_differential
+TARGET FEATURE: InSAR Displacement Difference
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 11
+Scenario features: ['InSAR Displacement Difference']
+Best hyperparameters: {'n_estimators': 200, 'learning_rate': 0.05, 'num_leaves': 15, 'min_child_samples': 10, 'subsample': 0.9, 'colsample_bytree': 0.9}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.4196      2.9398      2.1686      
+Validation  0.0318      4.1449      2.8298      
+Test        0.1013      6.5215      4.1541      
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    -1.1436     5.6496      3.5932      
+Validation  -1.1441     6.1680      4.0104      
+Test        -1.7743     11.4583     7.0888      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: 1.8756
+RMSE Reduction: 4.9368
+MAE Reduction: 2.9347
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.1575         2.4284         1.8538         13910          
+Qazvin-Alborz-Tehran     0.4261         2.5453         1.8993         6496           
+Marvdasht                0.5575         4.0026         3.0158         6200           
+Isfahan                  0.2827         2.5533         1.9993         4922           
+Semnan                   0.0658         2.4664         1.8682         3740           
+Jiroft                   0.2460         5.1011         3.6901         2987           
+Lake Urmia  Tabriz       0.7914         5.2222         3.5959         2352           
+Nishapur                 0.5869         2.1921         1.6957         2580           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 11 | Average R²: 0.0892 | Average RMSE: 4.6331 | Average MAE: 3.4816
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   0.1117      2.5339      1.8993      29277       13910       
+Qazvin-Alborz-Tehran        0.3852      2.3433      1.7509      36691       6496        
+Marvdasht                   -0.0196     6.3886      4.9996      36987       6200        
+Isfahan                     0.0229      3.1628      2.4389      38265       4922        
+Semnan                      0.0511      2.5778      1.9083      39447       3740        
+Jiroft                      0.0198      5.4684      3.9673      40200       2987        
+Lake Urmia  Tabriz          0.0914      11.1215     8.2354      40835       2352        
+Nishapur                    0.0514      3.4686      2.6532      40607       2580        
+==============================================================================================================
+MODEL: XGBoost
+SCENARIO: subsidence_history_only_differential
+TARGET FEATURE: InSAR Displacement Difference
+==============================================================================================================
+Training Data:    ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Rafsanjan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Qazvin-Alborz-Tehran\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Marvdasht\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Isfahan\\Merged_Dataset_3D.npz']
+Validation Data: ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Semnan\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Jiroft\\Merged_Dataset_3D.npz']
+Test Data:       ['C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Lake Urmia  Tabriz\\Merged_Dataset_3D.npz', 'C:\\Users\\DFMRendering\\Desktop\\subsidence\\Revise\\Data\\Nishapur\\Merged_Dataset_3D.npz']
+Future steps forecasted: 1
+Optimal past steps: 11
+Scenario features: ['InSAR Displacement Difference']
+Best hyperparameters: {'n_estimators': 500, 'learning_rate': 0.03, 'max_depth': 4, 'min_child_weight': 3, 'subsample': 0.8, 'colsample_bytree': 0.8, 'reg_alpha': 0.0, 'reg_lambda': 1.0}
+
+MODEL PERFORMANCE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    0.4369      2.8956      2.1375      
+Validation  0.0385      4.1305      2.8348      
+Test        0.1034      6.5140      4.1641      
+
+PERSISTENCE BASELINE SUMMARY
+------------------------------------------------------------
+Split       R² Score    RMSE (mm)   MAE (mm)    
+------------------------------------------------------------
+Training    -1.1436     5.6496      3.5932      
+Validation  -1.1441     6.1680      4.0104      
+Test        -1.7743     11.4583     7.0888      
+
+MODEL VS PERSISTENCE ON TEST SET
+------------------------------------------------------------
+Delta R²: 1.8777
+RMSE Reduction: 4.9443
+MAE Reduction: 2.9247
+
+IN-CITY TEMPORAL SPLIT SUMMARY (80% earliest / 20% latest)
+------------------------------------------------------------------------------------------
+City Name                R² Score       RMSE (mm)      MAE (mm)       Total Samples  
+------------------------------------------------------------------------------------------
+Rafsanjan                0.0673         2.5657         1.9861         15080          
+Qazvin-Alborz-Tehran     0.1489         3.1483         2.4106         7018           
+Marvdasht                0.3365         5.6491         4.1480         6758           
+Isfahan                  0.3521         2.5705         1.9745         5336           
+Semnan                   -0.1284        2.7151         2.0420         4046           
+Jiroft                   -0.0961        6.0373         4.4774         3248           
+Lake Urmia  Tabriz       -0.1781        12.3373        9.1870         2541           
+Nishapur                 0.4675         2.5413         1.8885         3120           
+
+LEAVE-ONE-CITY-OUT CV SUMMARY
+--------------------------------------------------------------------------------------------------------------
+Best past steps: 11 | Average R²: 0.0613 | Average RMSE: 4.6761 | Average MAE: 3.5034
+--------------------------------------------------------------------------------------------------------------
+Rafsanjan                   0.0914      2.5626      1.9244      29277       13910       
+Qazvin-Alborz-Tehran        0.1721      2.7193      1.9513      36691       6496        
+Marvdasht                   -0.0107     6.3606      4.9821      36987       6200        
+Isfahan                     0.0181      3.1706      2.4466      38265       4922        
+Semnan                      0.0435      2.5882      1.9204      39447       3740        
+Jiroft                      0.0454      5.3966      3.9161      40200       2987        
+Lake Urmia  Tabriz          0.0916      11.1203     8.2279      40835       2352        
+Nishapur                    0.0392      3.4908      2.6581      40607       2580        
+     
