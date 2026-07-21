@@ -1,4 +1,4 @@
-# GeoAI Framework for Large-Scale Land Subsidence Forecasting with InSAR and Environmental Variables
+# Decoupling Cumulative and Differential Land Subsidence: A Multi-Scenario Machine Learning Framework Using InSAR and Hydro-Climatic Data
 
 [![Status](https://img.shields.io/badge/Status-Submitted-blue)](https://www.springer.com/journal/11069)
 [![Journal](https://img.shields.io/badge/Journal-Natural%20Hazards-orange)](https://www.springer.com/journal/11069)
