@@ -87,7 +87,7 @@ If you use this code or dataset, please cite our paper:
 
 ```bibtex
 @article{Shahmiri2026Subsidence,
-  title={Large-Scale Land Subsidence Forecasting with InSAR and Environmental Variables via Machine Learning Approaches},
+  title={Decoupling Cumulative and Differential Land Subsidence: A Multi-Scenario Machine Learning Framework Using InSAR and Hydro-Climatic Data},
   author={Shahmiri, Amirreza and Ebrahimi Derakhshan, Masoud and Siadatmousavi, Seyed Mostafa},
   journal={Natural Hazards},
   year={2026},
